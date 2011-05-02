@@ -23,7 +23,7 @@ require 'chef/knife'
 require 'json'
 require 'cluster_chef'
 
-module ClusterChef
+module Cluster
  
  class ClusterBootstrap < Chef::Knife
    banner "knife cluster bootstrap CLUSTER_NAME FACET_NAME SERVER_FQDN (options)"

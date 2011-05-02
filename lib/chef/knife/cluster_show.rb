@@ -20,7 +20,7 @@ require 'chef/knife'
 require 'json'
 require 'cluster_chef'
 
-module ClusterChef
+module Cluster
 
   class ClusterShow < Chef::Knife
 
@@ -63,7 +63,7 @@ module ClusterChef
       # Launch server
       #
       servers = facet.list_servers.select{|s| s.state == "running" }
-      p Cluster.cluster_facets
+      p ClusterChef::Cluster.cluster_facets
       
     end
   end

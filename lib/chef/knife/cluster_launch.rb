@@ -21,7 +21,7 @@ require 'chef/knife'
 require 'json'
 require 'cluster_chef'
 
-module ClusterChef
+module Cluster
 
   class ClusterLaunch < Chef::Knife
 

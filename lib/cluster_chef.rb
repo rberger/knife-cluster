@@ -1,7 +1,7 @@
-require 'cluster/dsl_object'
-require 'cluster/cloud'
-require 'cluster/security_group'
-require 'cluster/compute'
+require 'cluster_chef/dsl_object'
+require 'cluster_chef/cloud'
+require 'cluster_chef/security_group'
+require 'cluster_chef/compute'
 
 module Cluster
   Chef::Config[:clusters] ||= {}
