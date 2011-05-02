@@ -15,11 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+require 'socket'
+require 'chef/knife'
+require 'json'
+require 'cluster_chef'
 
 module ClusterChef
-  require 'socket'
-  require 'chef/knife'
-  require 'json'
 
   class ClusterShow < Chef::Knife
 
@@ -40,8 +41,6 @@ module ClusterChef
       require 'highline'
       require 'net/ssh/multi'
       require 'readline'
-      # $: << Chef::Config[:cluster_chef_path]+'/lib'
-      require 'cluster_chef'
       $stdout.sync = true
 
       #
@@ -64,7 +63,7 @@ module ClusterChef
       # Launch server
       #
       servers = facet.list_servers.select{|s| s.state == "running" }
-      p ClusterChef.cluster_facets
+      p Cluster.cluster_facets
       
     end
   end

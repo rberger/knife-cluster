@@ -1,9 +1,9 @@
-require 'cluster_chef/dsl_object'
-require 'cluster_chef/cloud'
-require 'cluster_chef/security_group'
-require 'cluster_chef/compute'
+require 'cluster/dsl_object'
+require 'cluster/cloud'
+require 'cluster/security_group'
+require 'cluster/compute'
 
-module ClusterChef
+module Cluster
   Chef::Config[:clusters] ||= {}
 
   def self.connection
@@ -15,7 +15,7 @@ module ClusterChef
   end
 
   def self.servers
-    ClusterChef.connection.servers.all
+    Cluster.connection.servers.all
   end
 
   def self.running_servers
@@ -27,7 +27,7 @@ module ClusterChef
 
 
   def self.cluster name, &block
-    cl = self.clusters[name] ||= ClusterChef::Cluster.new(name)
+    cl = self.clusters[name] ||= Cluster::Cluster.new(name)
     cl.instance_eval(&block) if block
     cl
   end

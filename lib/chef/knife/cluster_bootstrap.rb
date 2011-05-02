@@ -18,10 +18,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+require 'socket'
+require 'chef/knife'
+require 'json'
+require 'cluster_chef'
+
 module ClusterChef
-  require 'socket'
-  require 'chef/knife'
-  require 'json'
  
  class ClusterBootstrap < Chef::Knife
    banner "knife cluster bootstrap CLUSTER_NAME FACET_NAME SERVER_FQDN (options)"
@@ -55,8 +57,6 @@ module ClusterChef
      require 'highline'
      require 'net/ssh/multi'
      require 'readline'
-     # $: << Chef::Config[:cluster_chef_path]+'/lib'
-     require 'cluster_chef'
      $stdout.sync = true
 
      #

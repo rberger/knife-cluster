@@ -16,10 +16,12 @@
 # limitations under the License.
 #
 
+require 'socket'
+require 'chef/knife'
+require 'json'
+require 'cluster_chef'
+
 module ClusterChef
-  require 'socket'
-  require 'chef/knife'
-  require 'json'
 
   class ClusterLaunch < Chef::Knife
 
@@ -77,8 +79,6 @@ module ClusterChef
       require 'highline'
       require 'net/ssh/multi'
       require 'readline'
-      # $: << Chef::Config[:cluster_chef_path]+'/lib'
-      require 'cluster_chef'
       $stdout.sync = true
 
       #
