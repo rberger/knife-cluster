@@ -16,14 +16,21 @@
 # limitations under the License.
 #
 
-require 'socket'
 require 'chef/knife'
-require 'json'
-require 'cluster_chef'
+
 
 module Cluster
 
   class ClusterLaunch < Chef::Knife
+    
+    deps do
+      require 'socket'
+      require 'json'
+      require 'cluster_chef'
+      require 'chef/knife/core/bootstrap_context'
+      require 'chef/search/query'
+      require 'chef/mixin/command'
+    end
 
     banner "knife cluster launch CLUSTER_NAME FACET_NAME (options)"
 
@@ -144,12 +151,12 @@ module Cluster
         # Bootstrap it (if requested)
         #
         if config[:bootstrap]
-          begin
+          # begin
             bootstrap_for_node(server).run
-          rescue StandardError => e
-            warn e
-            warn e.backtrace
-          end
+          # rescue StandardError => e
+          #   warn e
+          #   warn e.backtrace
+          # end
         end
       end
 
