@@ -111,3 +111,9 @@ module Kernel
     singleton_class.class_eval(*args, &block)
   end
 end
+
+class Object
+  def blank?
+    respond_to?(:empty?) ? empty? : !self
+  end
+end

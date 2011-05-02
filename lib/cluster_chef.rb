@@ -3,7 +3,7 @@ require 'cluster_chef/cloud'
 require 'cluster_chef/security_group'
 require 'cluster_chef/compute'
 
-module Cluster
+module ClusterChef
   Chef::Config[:clusters] ||= {}
 
   def self.connection
@@ -27,7 +27,7 @@ module Cluster
 
 
   def self.cluster name, &block
-    cl = self.clusters[name] ||= Cluster::Cluster.new(name)
+    cl = self.clusters[name] ||= ClusterChef::Cluster.new(name)
     cl.instance_eval(&block) if block
     cl
   end
