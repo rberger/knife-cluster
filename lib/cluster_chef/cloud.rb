@@ -1,4 +1,3 @@
-
 module ClusterChef
   module Cloud
     class Base < ClusterChef::DslObject
