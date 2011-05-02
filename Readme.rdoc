@@ -14,7 +14,22 @@ This plugin is distributed as a Ruby Gem. To install it, run:
 
 Depending on your system's configuration, you may need to run this command with root privileges.
 
-= Discussion
+= USAGE
+
+You will need to add the parameter cluster_chef_path to your knife.rb config file. It should be set to the absolute path to the directory that containts the clusters directory. The clusters directory then contains the cluster definitions as per https://github.com/infochimps/cluster_chef/blob/version_2/README.textile
+
+You can see what the command options are by using --help for each level of command:
+
+    $ knife cluster --help
+    Available cluster subcommands: (for details, knife SUB-COMMAND --help)
+
+    ** CLUSTER COMMANDS **
+    knife cluster bootstrap CLUSTER_NAME FACET_NAME SERVER_FQDN (options)
+    knife cluster launch CLUSTER_NAME FACET_NAME (options)
+    knife cluster show CLUSTER_NAME FACET_NAME (options)
+
+
+= DISCUSSION
 
 http://groups.google.com/group/infochimps-code
 
